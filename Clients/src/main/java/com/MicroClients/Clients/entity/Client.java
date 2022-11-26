@@ -1,26 +1,32 @@
 package com.MicroClients.Clients.entity;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.persistence.Column;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
 @Builder
 @ToString
-@EqualsAndHashCode(of = {"dni"})
+@EqualsAndHashCode(of = {"identityNumber"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "clients")
-public class Clients
+public class Client
 {
     @Id
     private String id;
+
+    @NotNull
+    @Indexed(unique = true)
+    @Column(nullable = false, length = 8)
+    private String identityNumber;
 
     @NotNull
     @Indexed(unique = true)
