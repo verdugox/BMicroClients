@@ -1,7 +1,6 @@
 package com.MicroClients.Clients.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Index;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -14,7 +13,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 @ToString
-@EqualsAndHashCode(of = {"identityNumber"})
+@EqualsAndHashCode(of = {"dni"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "clients")
