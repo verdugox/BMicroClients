@@ -3,6 +3,7 @@ package com.MicroClients.Clients.web.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,8 +20,8 @@ public class ClientModel {
     @JsonIgnore
     private String id;
 
-    @NotBlank(message="Identity Number cannot be null or empty")
-    private String identityNumber;
+    @NotBlank(message="DNI Number cannot be null or empty")
+    private String identityDni;
 
     @NotBlank(message="Name cannot be null or empty")
     private String firstName;
@@ -31,19 +32,19 @@ public class ClientModel {
     @NotBlank(message="BusinessName cannot be null or empty")
     private String address;
 
-    @NotBlank(message="BusinessName cannot be null or empty")
-    private String phone;
+    @NotNull(message="Phone cannot be null or empty")
+    private Integer phone;
 
     @NotBlank(message="Email cannot be null or empty")
     private String email;
 
-    @NotBlank(message="PhoneNumber cannot be null or empty")
+    @NotBlank(message="TypeClient cannot be null or empty")
     private String typeClient;
 
-    @NotBlank(message="PhoneNumber cannot be null or empty")
-    private String ruc;
+    @NotNull(message="RUC cannot be null or empty")
+    private float ruc;
 
-    @NotBlank(message="PhoneNumber cannot be null or empty")
+    @NotBlank(message="CompanyName cannot be null or empty")
     private String companyName;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

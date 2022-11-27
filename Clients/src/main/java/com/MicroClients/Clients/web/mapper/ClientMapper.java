@@ -12,7 +12,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface ClientMapper {
 
-    Client modelToEntity (Client model);
+    Client modelToEntity (ClientModel model);
 
     ClientModel entityToModel (Client event);
 

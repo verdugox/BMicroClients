@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 @ToString
-@EqualsAndHashCode(of = {"identityNumber"})
+@EqualsAndHashCode(of = {"identityDni"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "clients")
@@ -26,12 +26,12 @@ public class Client
     @NotNull
     @Indexed(unique = true)
     @Column(nullable = false, length = 8)
-    private String identityNumber;
+    private String identityDni;
 
-    @NotNull
+    /*@NotNull
     @Indexed(unique = true)
     @Column(nullable = false, length = 8)
-    private Integer dni;
+    private Integer dni;*/
     @NotEmpty
     @Column(nullable = false, length = 50)
     private String firstName;

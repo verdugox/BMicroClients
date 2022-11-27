@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bootcamp.java</groupId>
-	<artifactId>customer</artifactId>
+	<artifactId>Clients</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer</name>
+	<name>Clients</name>
 	<description>Microservices for CRUD Clients</description>
 	<properties>
 		<java.version>11</java.version>
