@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Data
@@ -33,12 +34,15 @@ public class Client
     @Column(nullable = false, length = 8)
     private Integer dni;*/
     @NotEmpty
+    @Size(min = 0, max = 50)
     @Column(nullable = false, length = 50)
     private String firstName;
     @NotEmpty
+    @Size(min = 0, max = 50)
     @Column(nullable = false, length = 50)
     private String lastName;
     @NotEmpty
+    @Size(min = 0, max = 100)
     @Column(nullable = false, length = 100)
     private String address;
     @NotNull
@@ -47,9 +51,11 @@ public class Client
     private Integer phone;
     @NotEmpty
     @Indexed(unique = true)
+    @Size(min = 0, max = 100)
     @Column(nullable = false, length = 100)
     private String email;
     @NotEmpty
+    @Size(min = 0, max = 50)
     @Column(nullable = false, length = 50)
     private String typeClient;
     @NotNull
@@ -57,6 +63,7 @@ public class Client
     @Column(nullable = false, length = 11)
     private float ruc;
     @NotEmpty
+    @Size(min = 0, max = 100)
     @Column(nullable = false, length = 100)
     private String companyName;
     @NotNull
