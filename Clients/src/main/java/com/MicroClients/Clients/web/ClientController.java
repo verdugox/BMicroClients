@@ -56,6 +56,16 @@ public class ClientController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/findByIdentityDni/{identityDni}")
+    public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
+        log.info("findByIdentityDni executed {}", identityDni);
+        Mono<Client> response = clientService.findByIdentityDni(identityDni);
+        return response
+                .map(client -> clientMapper.entityToModel(client))
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public Mono<ResponseEntity<ClientModel>> create(@Valid @RequestBody ClientModel request){
         log.info("create executed {}", request);
