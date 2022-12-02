@@ -7,599 +7,1105 @@
 	},
 	"item": [
 		{
-			"name": "Create Client A",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"34526985\",\r\n        \"firstName\" : \"Pepe\",\r\n\t\t\"lastName\" : \"Rodriguez\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 987456346,\r\n        \"email\" : \"pepetombo@outlook.com\",\r\n        \"typeClient\" : \"PERSONAL\",\r\n        \"ruc\" : 20596582147,\r\n\t\t\"companyName\" : \"LOS PEPES CHICKEN\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BMicroClient",
+			"item": [
+				{
+					"name": "Create Client A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"34526985\",\r\n        \"firstName\" : \"Pepe\",\r\n\t\t\"lastName\" : \"Rodriguez\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 987456346,\r\n        \"email\" : \"pepetombo@outlook.com\",\r\n        \"typeClient\" : \"PERSONAL\",\r\n        \"ruc\" : 20596582147,\r\n\t\t\"companyName\" : \"LOS PEPES CHICKEN\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:9040/v1/client",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client"
-					]
+				{
+					"name": "Create Client B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres\",\r\n\t\t\"lastName\" : \"Acuña Ramos\",\r\n        \"address\" : \"Av. Teodoro Valcarcel San Jacinto\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"typeClient\" : \"EMPRESARIAL\",\r\n        \"ruc\" : 20154257896,\r\n\t\t\"companyName\" : \"LOS CAQUITOS COMPANY\",\r\n\t\t\"dateRegister\": \"2022-11-26\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"dni\" : \"34526985\",\r\n        \"firstName\" : \"Pepe Version2\",\r\n\t\t\"lastName\" : \"Rodriguez Version2\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 987456346,\r\n        \"email\" : \"pepetombo@outlook.com\",\r\n        \"typeClient\" : \"PERSONAL\",\r\n        \"ruc\" : 20596582147,\r\n\t\t\"companyName\" : \"LOS PEPES CHICKEN\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/63828265efd9ff54f883a63a",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"63828265efd9ff54f883a63a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"dni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres 2\",\r\n\t\t\"lastName\" : \"Acuña Ramos 2\",\r\n        \"address\" : \"Av. Teodoro Valcarcel San Jacinto 2\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"typeClient\" : \"EMPRESARIAL\",\r\n        \"ruc\" : 20154257896,\r\n\t\t\"companyName\" : \"LOS CAQUITOS COMPANY\",\r\n\t\t\"dateRegister\": \"2022-11-26\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/6382861761d36b4560dad9e7",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"6382861761d36b4560dad9e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Client",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Clients For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/findById/63837bd18059701594655271",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"findById",
+								"63837bd18059701594655271"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Clients For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/findByIdentityDni/34526985",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"findByIdentityDni",
+								"34526985"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9040/v1/client/6386de1ba3bdb41a00baf26b",
+							"host": [
+								"localhost"
+							],
+							"port": "9040",
+							"path": [
+								"v1",
+								"client",
+								"6386de1ba3bdb41a00baf26b"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Create Product Passive A",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityAccount\" : \"2589254563\",\r\n        \"document\" : \"58652356\",\r\n\t\t\"typeAccount\" : \"AHORRO\",\r\n        \"availableAmount\" : 6000.50,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BMicroProductPassive",
+			"item": [
+				{
+					"name": "Create Product Passive A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityAccount\" : \"2589254563\",\r\n        \"document\" : \"34526985\",\r\n\t\t\"typeAccount\" : \"AHORRO\",\r\n        \"availableAmount\" : 6000.50,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive"
-					]
+				{
+					"name": "Create Product Passive B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\" : \"2\",\r\n        \"identityAccount\" : \"152645785\",\r\n        \"document\" : \"34526985\",\r\n\t\t\"typeAccount\" : \"CORRIENTE\",\r\n        \"availableAmount\" : 4000,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Passive C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\" : \"2\",\r\n        \"identityAccount\" : \"12589965452\",\r\n        \"document\" : \"34526985\",\r\n\t\t\"typeAccount\" : \"CORRIENTE\",\r\n        \"availableAmount\" : 4000,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Passive A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityAccount\" : \"2589254562\",\r\n        \"document\" : \"58652355\",\r\n\t\t\"typeAccount\" : \"AHORRO\",\r\n        \"availableAmount\" : 6000.50,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/63839dc45c0c5d2856558ec9",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"63839dc45c0c5d2856558ec9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Passive B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityAccount\" : \"152645782\",\r\n        \"document\" : \"32563211\",\r\n\t\t\"typeAccount\" : \"CUENTA CORRIENTE\",\r\n        \"availableAmount\" : 4000,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/63839e105c0c5d2856558ecb",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"63839e105c0c5d2856558ecb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Products Passive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Products Passive For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/findById/63839dc45c0c5d2856558ec9",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"findById",
+								"63839dc45c0c5d2856558ec9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Products Passive For NroAccount",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/findByIdentityAccount/2589254563",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"findByIdentityAccount",
+								"2589254563"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product Passive For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8084/v1/productPassive/63839e105c0c5d2856558ecb",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"v1",
+								"productPassive",
+								"63839e105c0c5d2856558ecb"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Create Product Active A",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 2500.00,\r\n\t\t\"limitAmount\" : 5000.00,\r\n        \"document\" : \"46285513\",\r\n        \"holder\" : \"Luis Andres Acuña Ramos\",\r\n        \"signatory\" : \"Benito Rodriguez\",\r\n        \"availableAmount\" : 10000.00,\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BMicroMovePassive",
+			"item": [
+				{
+					"name": "Create Move Passive A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityAccount\" : \"2589254563\",\r\n        \"amount\" : 7000.00,\r\n\t\t\"operationType\" : \"ABONO\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive"
-					]
+				{
+					"name": "Create Move Passive B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\" : \"2\",\r\n        \"identityAccount\" : \"152645785\",\r\n        \"amount\" : 5000.00,\r\n\t\t\"operationType\" : \"RETIRO\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Move Passive A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityAccount\" : \"2589254563\",\r\n        \"amount\" : 5000.00,\r\n\t\t\"operationType\" : \"ABONO\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive/6386cccb18cba3260fbb9c3d",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive",
+								"6386cccb18cba3260fbb9c3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Move Passive B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"identityAccount\" : \"152645785\",\r\n        \"amount\" : 2500.00,\r\n\t\t\"operationType\" : \"RETIRO\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive/6386ccde18cba3260fbb9c3e",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive",
+								"6386ccde18cba3260fbb9c3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Move Passive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Move Passive For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive/findById/6386cccb18cba3260fbb9c3d",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive",
+								"findById",
+								"6386cccb18cba3260fbb9c3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Move Passive For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/v1/movePassive/6386ccde18cba3260fbb9c3e",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"movePassive",
+								"6386ccde18cba3260fbb9c3e"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Create Product Active B",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityContract\" : \"23564512396\",\r\n        \"amount\" : 3000.00,\r\n\t\t\"limitAmount\" : 7000.00,\r\n        \"document\" : \"45236589\",\r\n        \"holder\" : \"Cristiano Ronaldo\",\r\n        \"signatory\" : \"Roberto Carlos\",\r\n        \"availableAmount\" : 8000.00,\r\n\t\t\"dateRegister\": \"2022-11-29\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BMicroProductActive",
+			"item": [
+				{
+					"name": "Create Product Active A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 2500.00,\r\n\t\t\"limitAmount\" : 5000.00,\r\n        \"document\" : \"46285513\",\r\n        \"holder\" : \"Luis Andres Acuña Ramos\",\r\n        \"signatory\" : \"Benito Rodriguez\",\r\n        \"availableAmount\" : 10000.00,\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive"
-					]
+				{
+					"name": "Create Product Active B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityContract\" : \"23564512396\",\r\n        \"amount\" : 3000.00,\r\n\t\t\"limitAmount\" : 7000.00,\r\n        \"document\" : \"45236589\",\r\n        \"holder\" : \"Cristiano Ronaldo\",\r\n        \"signatory\" : \"Roberto Carlos\",\r\n        \"availableAmount\" : 8000.00,\r\n\t\t\"dateRegister\": \"2022-11-29\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Active A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 2000.00,\r\n\t\t\"limitAmount\" : 5000.00,\r\n        \"document\" : \"46285513\",\r\n        \"holder\" : \"Luis Andres Acuña Ramos\",\r\n        \"signatory\" : \"Benito Rodriguez\",\r\n        \"availableAmount\" : 10000.00,\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive/63850bda7a8e774edfe47ca5",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive",
+								"63850bda7a8e774edfe47ca5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Products Active",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Products Active For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive/findById/63850bda7a8e774edfe47ca5",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive",
+								"findById",
+								"63850bda7a8e774edfe47ca5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product Active For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/v1/productActive/63850bdd7a8e774edfe47ca6",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"productActive",
+								"63850bdd7a8e774edfe47ca6"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Update Client A",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"dni\" : \"34526985\",\r\n        \"firstName\" : \"Pepe Version2\",\r\n\t\t\"lastName\" : \"Rodriguez Version2\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 987456346,\r\n        \"email\" : \"pepetombo@outlook.com\",\r\n        \"typeClient\" : \"PERSONAL\",\r\n        \"ruc\" : 20596582147,\r\n\t\t\"companyName\" : \"LOS PEPES CHICKEN\",\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BMicroMoveActive",
+			"item": [
+				{
+					"name": "Create Move Active A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 2500.00,\r\n        \"operationType\" : \"PAGO\",\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:9040/v1/client/63828265efd9ff54f883a63a",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client",
-						"63828265efd9ff54f883a63a"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Product Passive A",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"identityAccount\" : \"2589254562\",\r\n        \"document\" : \"58652355\",\r\n\t\t\"typeAccount\" : \"AHORRO\",\r\n        \"availableAmount\" : 6000.50,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Create Move Active B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityContract\" : \"23564512396\",\r\n        \"amount\" : 3000.00,\r\n        \"operationType\" : \"CONSUMO\",\r\n\t\t\"dateRegister\": \"2022-11-29\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive/63839dc45c0c5d2856558ec9",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive",
-						"63839dc45c0c5d2856558ec9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Product Active A",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 2000.00,\r\n\t\t\"limitAmount\" : 5000.00,\r\n        \"document\" : \"46285513\",\r\n        \"holder\" : \"Luis Andres Acuña Ramos\",\r\n        \"signatory\" : \"Benito Rodriguez\",\r\n        \"availableAmount\" : 10000.00,\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Update Move Active A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityContract\" : \"2589254563\",\r\n        \"amount\" : 4000.00,\r\n        \"operationType\" : \"PAGO\",\r\n\t\t\"dateRegister\": \"2022-11-28\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive/6386d010f250cc09abdb8faa",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive",
+								"6386d010f250cc09abdb8faa"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive/63850bda7a8e774edfe47ca5",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive",
-						"63850bda7a8e774edfe47ca5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Product Passive B",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"identityAccount\" : \"152645782\",\r\n        \"document\" : \"32563211\",\r\n\t\t\"typeAccount\" : \"CUENTA CORRIENTE\",\r\n        \"availableAmount\" : 4000,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "List All Move Active",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive",
+								"findAll"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive/63839e105c0c5d2856558ecb",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive",
-						"63839e105c0c5d2856558ecb"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Client B",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres\",\r\n\t\t\"lastName\" : \"Acuña Ramos\",\r\n        \"address\" : \"Av. Teodoro Valcarcel San Jacinto\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"typeClient\" : \"EMPRESARIAL\",\r\n        \"ruc\" : 20154257896,\r\n\t\t\"companyName\" : \"LOS CAQUITOS COMPANY\",\r\n\t\t\"dateRegister\": \"2022-11-26\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "List Move Active For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive/findById/6386d010f250cc09abdb8faa",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive",
+								"findById",
+								"6386d010f250cc09abdb8faa"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:9040/v1/client",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Product Passive B",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n        \"id\" : \"2\",\r\n        \"identityAccount\" : \"152645785\",\r\n        \"document\" : \"32563214\",\r\n\t\t\"typeAccount\" : \"CUENTA CORRIENTE\",\r\n        \"availableAmount\" : 4000,\r\n\t\t\"dateRegister\": \"2022-11-25\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Delete Product Active For ID Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8086/v1/moveActive/6386d027f250cc09abdb8fab",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"v1",
+								"moveActive",
+								"6386d027f250cc09abdb8fab"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Client B",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"dni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres 2\",\r\n\t\t\"lastName\" : \"Acuña Ramos 2\",\r\n        \"address\" : \"Av. Teodoro Valcarcel San Jacinto 2\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"typeClient\" : \"EMPRESARIAL\",\r\n        \"ruc\" : 20154257896,\r\n\t\t\"companyName\" : \"LOS CAQUITOS COMPANY\",\r\n\t\t\"dateRegister\": \"2022-11-26\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:9040/v1/client/6382861761d36b4560dad9e7",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client",
-						"6382861761d36b4560dad9e7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List All Client",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:9040/v1/client/findAll",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client",
-						"findAll"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List All Products Passive",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive/findAll",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive",
-						"findAll"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List All Products Active",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive/findAll",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive",
-						"findAll"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Clients For ID",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:9040/v1/client/findById/63837bd18059701594655271",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client",
-						"findById",
-						"63837bd18059701594655271"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Products Active For ID",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive/findById/63850bda7a8e774edfe47ca5",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive",
-						"findById",
-						"63850bda7a8e774edfe47ca5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Products Passive For ID",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive/findById/63839dc45c0c5d2856558ec9",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive",
-						"findById",
-						"63839dc45c0c5d2856558ec9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Client For ID",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:9040/v1/client/63828265efd9ff54f883a63a",
-					"host": [
-						"localhost"
-					],
-					"port": "9040",
-					"path": [
-						"v1",
-						"client",
-						"63828265efd9ff54f883a63a"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Product Passive For ID",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8084/v1/productPassive/63839e105c0c5d2856558ecb",
-					"host": [
-						"localhost"
-					],
-					"port": "8084",
-					"path": [
-						"v1",
-						"productPassive",
-						"63839e105c0c5d2856558ecb"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Product Active For ID",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8085/v1/productActive/63850bdd7a8e774edfe47ca6",
-					"host": [
-						"localhost"
-					],
-					"port": "8085",
-					"path": [
-						"v1",
-						"productActive",
-						"63850bdd7a8e774edfe47ca6"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
