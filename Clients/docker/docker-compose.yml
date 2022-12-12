@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  ms-clients:
+    image: ms-clients
+    ports:
+      - "9043:9043"
+      
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
