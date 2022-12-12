@@ -1,9 +1,9 @@
 version: "3.7"
 services:
   ms-clients:
-    image: ms-clients
+    image: verdugox/ms-clients:1.0
     ports:
-      - "9043:9043"
+      - "9040:9040"
       
   mongo:
     image: mongo
