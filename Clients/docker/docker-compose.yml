@@ -4,7 +4,22 @@ services:
     image: verdugox/ms-clients:1.0
     ports:
       - "9040:9040"
-      
+  ms-moveactive:
+    image: verdugox/ms-moveactive:1.0
+    ports:
+      - "8086:8086"
+  ms-movepassive:
+    image: verdugox/ms-movepassive:1.0
+    ports:
+      - "8087:8087"
+  ms-productactive:
+    image: verdugox/ms-productactive:1.0
+    ports:
+      - "8085:8085"
+  ms-productpassive:
+    image: verdugox/ms-productpassive:1.0
+    ports:
+      - "8084:8084"
   mongo:
     image: mongo
     ports:
