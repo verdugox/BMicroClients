@@ -6,6 +6,8 @@ import com.MicroClients.Clients.service.ClientService;
 import com.MicroClients.Clients.web.mapper.ClientMapper;
 import com.MicroClients.Clients.web.model.ClientModel;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import javax.validation.Valid;
 import java.net.URI;
+import java.time.Duration;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -37,13 +40,20 @@ public class ClientController {
     @Autowired
     private ClientMapper clientMapper;
 
+    private static final String RESILIENCE4J_INSTANCE_NAME = "example";
+
+    private static final String FALLBACK_METHOD = "fallback";
+
 
     @GetMapping("/findAll")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<Flux<ClientModel>>> getAll(){
         log.info("getAll executed");
         return Mono.just(ResponseEntity.ok()
                 .body(clientService.findAll()
-                        .map(client -> clientMapper.entityToModel(client))));
+                        .map(client -> clientMapper.entityToModel(client))))
+                        .delayElement(Duration.ofSeconds(5));
     }
 
     @GetMapping("/findById/{id}")
@@ -93,6 +103,9 @@ public class ClientController {
                 .map( r -> ResponseEntity.ok().<Void>build())
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
+
+
+
 
 
 }
