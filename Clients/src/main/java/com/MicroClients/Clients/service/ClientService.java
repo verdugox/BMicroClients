@@ -2,7 +2,7 @@ package com.MicroClients.Clients.service;
 
 import com.MicroClients.Clients.entity.Client;
 import com.MicroClients.Clients.repository.ClientRepository;
-import com.MicroClients.Clients.web.mapper.ClientMapper;
+import com.MicroClients.Clients.service.web.mapper.ClientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

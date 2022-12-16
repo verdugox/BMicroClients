@@ -1,15 +1,17 @@
-package com.MicroClients.Clients.web;
+package com.MicroClients.Clients.service.web;
 
 
 import com.MicroClients.Clients.entity.Client;
+import com.MicroClients.Clients.entity.Response;
 import com.MicroClients.Clients.service.ClientService;
-import com.MicroClients.Clients.web.mapper.ClientMapper;
-import com.MicroClients.Clients.web.model.ClientModel;
+import com.MicroClients.Clients.service.web.mapper.ClientMapper;
+import com.MicroClients.Clients.service.web.model.ClientModel;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -102,6 +104,19 @@ public class ClientController {
         return clientService.delete(id)
                 .map( r -> ResponseEntity.ok().<Void>build())
                 .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+
+    private Response<Boolean> toOkResponse() {
+        return toResponse(HttpStatus.OK, Boolean.TRUE);
+    }
+
+    private Response<Boolean> toResponse(HttpStatus httpStatus, Boolean result) {
+        return Response.<Boolean>builder()
+                .code(httpStatus.value())
+                .status(httpStatus.getReasonPhrase())
+                .data(result)
+                .build();
     }
 
 
