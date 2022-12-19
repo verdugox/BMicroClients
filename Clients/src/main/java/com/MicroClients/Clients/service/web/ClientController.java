@@ -54,11 +54,12 @@ public class ClientController {
         log.info("getAll executed");
         return Mono.just(ResponseEntity.ok()
                 .body(clientService.findAll()
-                        .map(client -> clientMapper.entityToModel(client))))
-                        .delayElement(Duration.ofSeconds(5));
+                        .map(client -> clientMapper.entityToModel(client))));
     }
 
     @GetMapping("/findById/{id}")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<ClientModel>> findById(@PathVariable String id){
         log.info("findById executed {}", id);
         Mono<Client> response = clientService.findById(id);
@@ -69,6 +70,8 @@ public class ClientController {
     }
 
     @GetMapping("/findByIdentityDni/{identityDni}")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
         log.info("findByIdentityDni executed {}", identityDni);
         Mono<Client> response = clientService.findByIdentityDni(identityDni);
@@ -79,6 +82,8 @@ public class ClientController {
     }
 
     @PostMapping
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<ClientModel>> create(@Valid @RequestBody ClientModel request){
         log.info("create executed {}", request);
         return clientService.create(clientMapper.modelToEntity(request))
@@ -89,6 +94,8 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<ClientModel>> updateById(@PathVariable String id, @Valid @RequestBody ClientModel request){
         log.info("updateById executed {}:{}", id, request);
         return clientService.update(id, clientMapper.modelToEntity(request))
@@ -99,6 +106,8 @@ public class ClientController {
     }
 
     @DeleteMapping("/{id}")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<Void>> deleteById(@PathVariable String id){
         log.info("deleteById executed {}", id);
         return clientService.delete(id)
