@@ -12,6 +12,7 @@
 	<artifactId>Clients</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Clients</name>
+	<packaging>jar</packaging>
 	<description>Microservices for CRUD Clients</description>
 	<properties>
 		<java.version>11</java.version>
@@ -150,7 +151,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-test</artifactId>
-			<version>3.0.0-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -199,15 +199,6 @@
 						<version>1.3</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
-					</archive>
-				</configuration>
 			</plugin>
 
 			<plugin>
