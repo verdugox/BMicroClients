@@ -15,6 +15,16 @@
 	<packaging>jar</packaging>
 	<description>Microservices for CRUD Clients</description>
 	<properties>
+		<sonar.exclusions>
+			**/entity/*.java,
+			**/listener/*.java,
+			**/repository/*.java,
+			**/service/web/mapper/*.java,
+			**/service/web/model/*.java,
+			**/service/web/*.java,
+			pom.xml,
+			**/*ClientsApplication.java
+		</sonar.exclusions>
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
 		<lombok.version>1.18.24</lombok.version>
@@ -143,8 +153,20 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.7</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>io.reactivex.rxjava2</groupId>
+			<artifactId>rxjava</artifactId>
+			<version>2.2.21</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
 
 	</dependencies>
 
@@ -231,13 +253,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.0.0</version>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>checkstyle</report>
-						</reports>
-					</reportSet>
-				</reportSets>
+				<configuration>
+					<configLocation>checkstyle.xml</configLocation>
+					<suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+					<suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>

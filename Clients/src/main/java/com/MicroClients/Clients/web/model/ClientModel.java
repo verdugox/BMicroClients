@@ -1,4 +1,4 @@
-package com.MicroClients.Clients.service.web.model;
+package com.MicroClients.Clients.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

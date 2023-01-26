@@ -1,19 +1,22 @@
-package com.MicroClients.Clients.service.web;
+package com.MicroClients.Clients.web;
 
 
 import com.MicroClients.Clients.entity.Client;
 import com.MicroClients.Clients.entity.Response;
 import com.MicroClients.Clients.service.ClientService;
-import com.MicroClients.Clients.service.web.mapper.ClientMapper;
-import com.MicroClients.Clients.service.web.model.ClientModel;
+import com.MicroClients.Clients.web.mapper.ClientMapper;
+import com.MicroClients.Clients.web.model.ClientModel;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
+import org.springframework.data.redis.core.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -22,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.validation.Valid;
 import java.net.URI;
 import java.time.Duration;
+import java.util.HashMap;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -37,11 +41,10 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
-
-
     @Autowired
     private ClientMapper clientMapper;
-
+    @Autowired
+    private StringRedisTemplate redisTemplate;
     private static final String RESILIENCE4J_INSTANCE_NAME = "example";
 
     private static final String FALLBACK_METHOD = "fallback";
@@ -52,34 +55,49 @@ public class ClientController {
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<Flux<ClientModel>>> getAll(){
         log.info("getAll executed");
+        ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
+        valueOp.set(getKey2("Lista Clientes"), clientService.findAll().toString(), Duration.ofSeconds(20));
         return Mono.just(ResponseEntity.ok()
                 .body(clientService.findAll()
                         .map(client -> clientMapper.entityToModel(client))));
     }
+
+
 
     @GetMapping("/findById/{id}")
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<ClientModel>> findById(@PathVariable String id){
         log.info("findById executed {}", id);
-        Mono<Client> response = clientService.findById(id);
-        return response
+        ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
+        valueOp.set(getKey(id), clientService.findById(id).toString(), Duration.ofSeconds(20));
+        return clientService.findById(id)
                 .map(client -> clientMapper.entityToModel(client))
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
+
     }
 
-    @GetMapping("/findByIdentityDni/{identityDni}")
-    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
-    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
-    public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
-        log.info("findByIdentityDni executed {}", identityDni);
-        Mono<Client> response = clientService.findByIdentityDni(identityDni);
-        return response
-                .map(client -> clientMapper.entityToModel(client))
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build());
+    private String getKey(String id)
+    {
+        return "Clients -" .concat(id);
     }
+    private String getKey2(String param)
+    {
+        return "Listado Clients" .concat(param);
+    }
+
+//    @GetMapping("/findByIdentityDni/{identityDni}")
+//    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+//    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+//    public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
+//        log.info("findByIdentityDni executed {}", identityDni);
+//        Mono<Client> response = clientService.findByIdentityDni(identityDni);
+//        return response
+//                .map(client -> clientMapper.entityToModel(client))
+//                .map(ResponseEntity::ok)
+//                .defaultIfEmpty(ResponseEntity.notFound().build());
+//    }
 
     @PostMapping
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)

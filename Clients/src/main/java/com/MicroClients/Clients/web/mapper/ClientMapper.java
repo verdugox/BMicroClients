@@ -1,7 +1,7 @@
-package com.MicroClients.Clients.service.web.mapper;
+package com.MicroClients.Clients.web.mapper;
 
 import com.MicroClients.Clients.entity.Client;
-import com.MicroClients.Clients.service.web.model.ClientModel;
+import com.MicroClients.Clients.web.model.ClientModel;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

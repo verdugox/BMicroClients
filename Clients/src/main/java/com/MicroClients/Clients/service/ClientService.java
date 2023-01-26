@@ -2,10 +2,11 @@ package com.MicroClients.Clients.service;
 
 import com.MicroClients.Clients.entity.Client;
 import com.MicroClients.Clients.repository.ClientRepository;
-import com.MicroClients.Clients.service.web.mapper.ClientMapper;
+import com.MicroClients.Clients.web.mapper.ClientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
@@ -29,15 +30,16 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
+    @Cacheable (value = "clientCache", key = "#getById")
     public Mono<Client> findById(String clientId){
         log.debug("findById executed {}" , clientId);
         return clientRepository.findById(clientId);
     }
 
-    public Mono<Client> findByIdentityDni(String identityDni){
-        log.debug("findByIdentityDni executed {}" , identityDni);
-        return clientRepository.findByIdentityDni(identityDni);
-    }
+//    public Mono<Client> findByIdentityDni(String identityDni){
+//        log.debug("findByIdentityDni executed {}" , identityDni);
+//        return clientRepository.findByIdentityDni(identityDni);
+//    }
 
     public Mono<Client> create(Client client){
         log.debug("create executed {}",client);
