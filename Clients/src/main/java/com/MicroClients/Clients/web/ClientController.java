@@ -9,6 +9,11 @@ import com.MicroClients.Clients.web.model.ClientModel;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -50,20 +55,37 @@ public class ClientController {
     private static final String FALLBACK_METHOD = "fallback";
 
 
+    @Operation(summary = "Listar todos los clientes registrados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se listaron todos los clientes registrados",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
     @GetMapping("/findAll")
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     public Mono<ResponseEntity<Flux<ClientModel>>> getAll(){
         log.info("getAll executed");
         ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-        valueOp.set(getKey2("Lista Clientes"), clientService.findAll().toString(), Duration.ofSeconds(20));
+        valueOp.set(getKey2("Lista Clientes"), clientService.findAll().toString(), Duration.ofSeconds(120L));
         return Mono.just(ResponseEntity.ok()
                 .body(clientService.findAll()
                         .map(client -> clientMapper.entityToModel(client))));
     }
 
 
-
+    @Operation(summary = "Listar todos los clientes por Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se listaron todos los clientes por Id",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
     @GetMapping("/findById/{id}")
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
@@ -87,18 +109,36 @@ public class ClientController {
         return "Listado Clients" .concat(param);
     }
 
-//    @GetMapping("/findByIdentityDni/{identityDni}")
-//    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
-//    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
-//    public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
-//        log.info("findByIdentityDni executed {}", identityDni);
-//        Mono<Client> response = clientService.findByIdentityDni(identityDni);
-//        return response
-//                .map(client -> clientMapper.entityToModel(client))
-//                .map(ResponseEntity::ok)
-//                .defaultIfEmpty(ResponseEntity.notFound().build());
-//    }
+    @Operation(summary = "Listar todos los clientes por DNI")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se listaron todos los clientes por DNI",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
+    @GetMapping("/findByIdentityDni/{identityDni}")
+    @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
+    public Mono<ResponseEntity<ClientModel>> findByIdentityDni(@PathVariable String identityDni){
+        log.info("findByIdentityDni executed {}", identityDni);
+        Mono<Client> response = clientService.findByIdentityDni(identityDni);
+        return response
+                .map(client -> clientMapper.entityToModel(client))
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
 
+    @Operation(summary = "Registro de los Clientes")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se registro el cliente de manera exitosa",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
     @PostMapping
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
@@ -111,6 +151,15 @@ public class ClientController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @Operation(summary = "Actualizar el cliente por ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se actualizará el cliente por el ID",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
     @PutMapping("/{id}")
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
@@ -123,6 +172,15 @@ public class ClientController {
                 .defaultIfEmpty(ResponseEntity.badRequest().build());
     }
 
+    @Operation(summary = "Eliminar Cliente por ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Se elimino el cliente por ID",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Client.class)) }),
+            @ApiResponse(responseCode = "400", description = "Parametros invalidos",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "No se encontraron registros",
+                    content = @Content) })
     @DeleteMapping("/{id}")
     @CircuitBreaker(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)
     @TimeLimiter(name = RESILIENCE4J_INSTANCE_NAME, fallbackMethod = FALLBACK_METHOD)

@@ -36,10 +36,10 @@ public class ClientService {
         return clientRepository.findById(clientId);
     }
 
-//    public Mono<Client> findByIdentityDni(String identityDni){
-//        log.debug("findByIdentityDni executed {}" , identityDni);
-//        return clientRepository.findByIdentityDni(identityDni);
-//    }
+    public Mono<Client> findByIdentityDni(String identityDni){
+        log.debug("findByIdentityDni executed {}" , identityDni);
+        return clientRepository.findByIdentityDni(identityDni);
+    }
 
     public Mono<Client> create(Client client){
         log.debug("create executed {}",client);
